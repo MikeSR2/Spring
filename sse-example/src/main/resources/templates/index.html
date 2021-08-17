@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div id="title">
+            <h1>Ejemplo de Spring WebFlux + Server Sent Events</h1>
+            <h2>Anuncios</h2>
+        </div>
+
+        <table id="comments" class="table table-striped">
+            <thead>
+            <tr>
+                <th width="10%">Autor</th>
+                <th width="60%">Anuncio</th>
+                <th width="30%">Fecha</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="result" data-th-each="anuncio : ${anuncios}">
+                <td>[[${anuncio.autor}]]</td>
+                <td>[[${anuncio.anuncio}]]</td>
+                <td>[[${anuncio.hora}]]</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script data-th-src="@{/js/main.js}"></script>
+
+</body>
+
+</html>
