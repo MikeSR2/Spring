@@ -1,0 +1,36 @@
+type Game{
+    id:ID!
+    title: String!
+    genre: String!
+    releaseDate: date
+    platform: String!
+    guide: Guide
+}
+# Root
+type Query{
+    findAllGames:[Game]!
+    countGames:Long!
+}
+# Root
+type Mutation{
+    createGame(title: String!,genre:String!,releaseDate:date,platform:String!,guide: ID!): Game!
+    updateGame(id:ID!,title:String,genre:String,releaseDate:date,platform:String,guide:ID!): Game!
+}
+
+type Guide{
+    id: ID!
+    title: String!
+    gameLenght: Int
+    levels: [String]
+}
+
+extend type Query{
+    findAllGuides: [Guide]!
+    countGuides: Long!
+}
+
+extend type Mutation{
+    createGuide(title:String!,gameLenght:Int,levels:[String]): Guide!
+    updateGuide(id:ID!,title:String!,gameLenght:Int,levels:[String]): Guide!
+    deleteGuide(id:ID!): Boolean
+}
