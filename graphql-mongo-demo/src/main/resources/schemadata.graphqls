@@ -13,8 +13,8 @@ type Query{
 }
 # Root
 type Mutation{
-    createGame(title: String!,genre:String!,releaseDate:date,platform:String!,guide: ID!): Game!
-    updateGame(id:ID!,title:String,genre:String,releaseDate:date,platform:String,guide:ID!): Game!
+    createGame(title: String!,genre:String!,releaseDate:date,platform:String!): Game!
+    updateGame(id:ID!,title:String,genre:String,releaseDate:date,platform:String): Game!
 }
 
 type Guide{
@@ -22,6 +22,7 @@ type Guide{
     title: String!
     gameLenght: Int
     levels: [String]
+    game: Game
 }
 
 extend type Query{
@@ -30,7 +31,7 @@ extend type Query{
 }
 
 extend type Mutation{
-    createGuide(title:String!,gameLenght:Int,levels:[String]): Guide!
+    createGuide(title:String!,gameLenght:Int,levels:[String],game: ID!): Guide!
     updateGuide(id:ID!,title:String!,gameLenght:Int,levels:[String]): Guide!
     deleteGuide(id:ID!): Boolean
 }
