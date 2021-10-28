@@ -1,9 +1,11 @@
 package com.example.graphql.graphqlmongodemo.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import antlr.collections.List;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +22,8 @@ public class Guide {
     private String id;
     private String title;
     private int gameLenght;
-    private List levels;
+    private List<String> levels;
+    private String game_id;
     
     /**
      * new guide
@@ -28,9 +31,10 @@ public class Guide {
      * @param gameLenght
      * @param levels
      */
-    public Guide(String title, int gameLenght, List levels) {
+    public Guide(String title, int gameLenght, List<String> levels, String game_id) {
         this.title = title;
         this.gameLenght = gameLenght;
         this.levels = levels;
+        this.game_id=game_id;
     }
 }

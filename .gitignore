@@ -14,3 +14,13 @@ buildNumber.properties
 /.project
 /.classpath
 /target
+.vscode/launch.json
+.vscode/settings.json
+sse-example/.classpath
+.gitignore
+sse-example/.project
+sse-example/.settings/org.eclipse.core.resources.prefs
+sse-example/.settings/org.eclipse.jdt.apt.core.prefs
+sse-example/.settings/org.eclipse.jdt.core.prefs
+sse-example/.settings/org.eclipse.m2e.core.prefs
+
