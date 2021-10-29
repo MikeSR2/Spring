@@ -19,7 +19,7 @@ public class Game {
     private String id;
     private String title;
     private String genre;
-    private Date date;
+    private String releaseDate;
     private String platform;
    
 
@@ -31,10 +31,10 @@ public class Game {
      * @param platform
      * @param guide_id
      */
-    public Game(String title, String genre, Date date, String platform) {
+    public Game(String title, String genre, String releaseDate, String platform) {
         this.title = title;
         this.genre = genre;
-        this.date = date;
+        this.releaseDate = releaseDate;
         this.platform = platform;
     }
 

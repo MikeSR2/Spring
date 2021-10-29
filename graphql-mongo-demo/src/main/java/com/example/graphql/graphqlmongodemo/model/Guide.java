@@ -23,7 +23,7 @@ public class Guide {
     private String title;
     private int gameLenght;
     private List<String> levels;
-    private String game_id;
+    private String game;
     
     /**
      * new guide
@@ -31,10 +31,10 @@ public class Guide {
      * @param gameLenght
      * @param levels
      */
-    public Guide(String title, int gameLenght, List<String> levels, String game_id) {
+    public Guide(String title, int gameLenght, List<String> levels, String game) {
         this.title = title;
         this.gameLenght = gameLenght;
         this.levels = levels;
-        this.game_id=game_id;
+        this.game=game;
     }
 }

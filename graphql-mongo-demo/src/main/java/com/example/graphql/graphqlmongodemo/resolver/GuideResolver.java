@@ -6,8 +6,11 @@ import com.example.graphql.graphqlmongodemo.model.Guide;
 import com.example.graphql.graphqlmongodemo.repository.GameRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class GuideFieldResolver implements GraphQLResolver<Guide> {
+
+@Component
+public class GuideResolver implements GraphQLResolver<Guide> {
     @Autowired
     private GameRepository gameRepository;
     
@@ -17,6 +20,6 @@ public class GuideFieldResolver implements GraphQLResolver<Guide> {
      * @return
      */
     public Game getGame(Guide guide){
-        return gameRepository.findById(guide.getGame_id()).orElseThrow(null);
+        return gameRepository.findById(guide.getGame()).orElseThrow(null);
     }
 }

@@ -1,6 +1,5 @@
 package com.example.graphql.graphqlmongodemo.resolver;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,11 +28,11 @@ public class MutationResolver implements GraphQLMutationResolver{
      * @param guide_id
      * @return
      */
-    public Game createGame(String title,String genre,Date releaseDate,String platform,String guide_id){
+    public Game createGame(String title,String genre,String releaseDate,String platform){
         Game game=new Game();
         game.setTitle(title);
         game.setGenre(genre);
-        game.setDate(releaseDate);
+        game.setReleaseDate(releaseDate);
         game.setPlatform(platform);
 
         gameRepository.save(game);
@@ -50,7 +49,7 @@ public class MutationResolver implements GraphQLMutationResolver{
      * @return
      * @throws Exception
      */
-    public Game updateGame(String id,String title,String genre,Date releaseDate,String platform) throws Exception{
+    public Game updateGame(String id,String title,String genre,String releaseDate,String platform) throws Exception{
         Optional<Game> optGame=gameRepository.findById(id);
         if(optGame.isPresent()){
             Game game=optGame.get();
@@ -61,7 +60,7 @@ public class MutationResolver implements GraphQLMutationResolver{
                 game.setGenre(genre);
             }
             if(releaseDate!=null){
-                game.setDate(releaseDate);
+                game.setReleaseDate(releaseDate);
             }
             if(platform!=null){
                 game.setPlatform(platform);
@@ -82,14 +81,14 @@ public class MutationResolver implements GraphQLMutationResolver{
      * @return
      * @throws Exception
      */
-    public Guide createGuide(String title,int gameLenght,List<String> levels,String game_id) throws Exception{
-        Optional<Game> optGame=gameRepository.findById(game_id);
+    public Guide createGuide(String title,int gameLenght,List<String> levels,String game) throws Exception{
+        Optional<Game> optGame=gameRepository.findById(game);
         if(optGame.isPresent()){
             Guide guide=new Guide();
             guide.setTitle(title);
             guide.setGameLenght(gameLenght);
             guide.setLevels(levels);
-            guide.setGame_id(game_id);
+            guide.setGame(game);
 
             guideRepository.save(guide);
             return guide;
